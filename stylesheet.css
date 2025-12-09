@@ -1,16 +1,20 @@
 html {
   height: 100%;
+  width: 100%;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0px;
   padding: 0px;
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   flex-direction: column;
+  overflow-x: clip;
 }
 main {
   flex: 1;
@@ -30,11 +34,13 @@ main {
   text-decoration: none;
   display: flex;
   gap: 20px;
+  flex: nowrap;
 }
 .navbar a {
   text-decoration: none;
   color: black;
   transition: all 1s;
+  text-wrap: nowrap;
 }
 
 .navbar a:hover {
@@ -58,11 +64,13 @@ main {
 
 .hero p {
   width: 30%;
+  min-width: 300px;
   text-align: center;
   margin-bottom: 30px;
 }
 .hero img {
   width: 25%;
+  min-width: 300px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0px 5px 5px 2px rgb(0, 0, 0, 0.5);
@@ -91,18 +99,25 @@ main div {
 }
 
 .card {
-  width: 400px;
+  width: 20%;
+  height: 20%;
+  max-width: 400px;
+  min-width: 250px;
   height: 500px;
   background-color: beige;
   border: solid rgb(0, 0, 0, 0.5) 5px;
   border-radius: 15px;
   flex-direction: column;
+  flex-shrink: inherit;
   padding: 10px;
+  padding-bottom: 10px;
   text-align: center;
   box-shadow: 0px 10px 10px 2px rgb(0, 0, 0, 0.2);
   transition: all 1s ease;
 }
-
+div.card {
+  overflow-y: hidden;
+}
 .card:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
@@ -119,33 +134,51 @@ main div {
 
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 50px;
   background-color: cornflowerblue;
+  h4 {
+    font-size: 0.8vm;
+  }
 }
 
 .company-name {
+  h3 {
+    font-size: 0.85vw;
+  }
+  font-size: 10vw;
   justify-items: left;
   margin-left: 20px;
   width: 30%;
+  text-wrap: nowrap;
 }
 .standard-links {
   display: flex;
   width: 30%;
-  gap: 50px;
+  h4 {
+    font-size: clamp(0.2rem, 0.9vw, 0.8rem);
+  }
 }
 
 .standard-links a {
+  display: flex;
+  justify-content: center;
+  width: 110px;
   text-decoration: none;
   color: black;
   transition: all 1s;
+  text-wrap: nowrap;
+  /* margin: 7%;*/
 }
 
 .standard-links a:hover {
   color: green;
   transition: all 0.5s;
+}
+div.standard-links {
+  justify-content: center;
 }
 
 .social-links {
@@ -161,10 +194,22 @@ footer {
   filter: brightness(1.6);
   cursor: pointer;
 }
+.social-mobile {
+  display: flex;
+
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 h1 {
   margin-bottom: 10px;
   font-size: 50px;
+  text-align: center;
 }
 
 h2 {
@@ -179,8 +224,87 @@ h3 {
 
 p {
   font-size: 20px;
+  text-align: center;
 }
 
 h4 {
   display: inline;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+  }
+  .navbar a {
+    font-size: 14px;
+  }
+
+  .navbar div img {
+    display: none;
+  }
+  .card {
+    width: 80%;
+    p {
+      font-size: 20px;
+    }
+  }
+  .navbar ul {
+    padding: 0px;
+  }
+  .social-mobile {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /*gap: 40px;*/
+  }
+
+  .standard-links {
+    justify-items: center;
+
+    gap: 20px;
+    h4 {
+      font-size: 10px;
+      width: 80px;
+      text-align: center;
+    }
+  }
+  .standard-links a {
+    display: flex;
+  }
+  div.standard-links {
+    display: flex;
+  }
+  .company-name h3 {
+    font-size: 10px;
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  .company-name {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .social-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 570px) {
+  .social-mobile {
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
