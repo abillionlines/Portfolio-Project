@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  margin: 0px;
+  margin: 0 auto;
   padding: 0px;
 
   width: 100%;
@@ -55,6 +55,7 @@ main {
   margin-top: 3px;
   margin-right: 10px;
 }
+
 .hero {
   width: 100%;
   background: rgba(82, 82, 82, 0.98);
@@ -333,5 +334,17 @@ h4 {
   .social-mobile {
     padding-left: 90px;
     padding-right: 90px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  html {
+    background-color: rgba(128, 128, 128, 0.3);
+  }
+
+  body {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
   }
 }
