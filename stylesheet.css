@@ -26,7 +26,7 @@ main {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 50px;
+
   background-color: rgba(100, 149, 237, 0.97);
   display: flex;
   justify-content: space-between;
@@ -115,7 +115,7 @@ main div {
   opacity: 75%;
   max-width: 400px;
   min-width: 250px;
-  height: 500px;
+
   background-color: beige;
   border: solid rgb(0, 0, 0, 0.25) 5px;
   border-radius: 15px;
@@ -154,29 +154,31 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
   background-color: rgba(58, 69, 91, 0.9);
-  h4 {
-    font-size: 0.8vm;
-  }
+}
+
+footer h4 {
+  font-size: 0.8vm;
 }
 
 .company-name {
-  h3 {
-    font-size: 0.85vw;
-  }
   font-size: 10vw;
   justify-items: left;
   margin-left: 20px;
   width: 30%;
   text-wrap: nowrap;
 }
+
+.company-name h3 {
+  font-size: 0.85vw;
+}
 .standard-links {
   display: flex;
   width: 30%;
-  h4 {
-    font-size: clamp(0.2rem, 0.9vw, 0.8rem);
-  }
+}
+
+.standard-links h4 {
+  font-size: clamp(0.2rem, 0.9vw, 0.8rem);
 }
 
 .standard-links a {
@@ -255,7 +257,7 @@ h4 {
   display: inline;
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .navbar {
     display: flex;
     justify-content: center;
@@ -269,9 +271,11 @@ h4 {
   }
   .card {
     width: 80%;
-    p {
-      font-size: 20px;
-    }
+    flex-direction: column;
+  }
+
+  .card p {
+    font-size: 20px;
   }
   .navbar ul {
     padding: 0px;
@@ -292,13 +296,13 @@ h4 {
 
   .standard-links {
     justify-items: center;
-
     gap: 20px;
-    h4 {
-      font-size: 10px;
-      width: 80px;
-      text-align: center;
-    }
+  }
+
+  .standard-links h4 {
+    font-size: 10px;
+    width: 80px;
+    text-align: center;
   }
   .standard-links a {
     display: flex;
